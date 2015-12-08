@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+
+    >
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            >
+
+            <ImageView
+                android:paddingTop="10px"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/photo"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+
+                android:src="@drawable/beta"
+                android:maxHeight="10px"
+                android:maxWidth="10px" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/title"
+                android:textSize="15sp"
+                android:text="Text bla"
+                android:gravity="center"
+                android:layout_marginRight="87dp"
+                android:layout_marginEnd="87dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="false"
+                android:textStyle="bold"
+                android:typeface="sans" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/text"
+                android:gravity="center"
+                android:text="blab aoldada"
+                android:layout_below="@+id/title"
+                android:layout_toRightOf="@+id/photo"
+                android:layout_toEndOf="@+id/photo"
+                android:layout_marginTop="5dp" />
+
+        </RelativeLayout>
+
+</LinearLayout>
