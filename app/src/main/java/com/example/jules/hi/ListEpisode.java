@@ -27,4 +27,8 @@ public class ListEpisode {
 
             this.removeEpisode(episode);
     }
+    public List<Episode> getMyepisodes(){
+
+        return this.myepisodes;
+    }
 }

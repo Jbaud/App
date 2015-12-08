@@ -139,7 +139,7 @@
             android:layout_centerHorizontal="true" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Next Episode"
             android:id="@+id/nextepisode"
@@ -149,7 +149,8 @@
             android:layout_alignRight="@+id/customBox"
             android:layout_alignEnd="@+id/customBox"
             android:layout_toRightOf="@+id/shows"
-            android:layout_toEndOf="@+id/shows" />
+            android:layout_toEndOf="@+id/shows"
+            android:background="#6975f0" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -170,5 +171,7 @@
             android:layout_marginTop="13dp"
             android:layout_below="@+id/idshow"
             android:layout_centerHorizontal="true" />
+
     </RelativeLayout>
+
 </LinearLayout>

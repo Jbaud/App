@@ -34,23 +34,22 @@ public class DisplayImage extends AppCompatActivity {
         setContentView(R.layout.activity_display_image);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        //Putain c'es tellement sale
-        Profil profil;
-        CreateConnection Id = new CreateConnection();
-        profil = Id.getUserInformations();
 
+        CreateConnection Id = new CreateConnection();
         // To change the input image into a round one
-        Bitmap image_carre = profil.user.picture;
+        Bitmap image_carre = CreateConnection.profil.user.picture;
         Bitmap image_ronde;
         image_ronde = getCroppedBitmap(image_carre,50);
         ImageView imgView=(ImageView) findViewById(R.id.profil);
         Drawable drawable = new BitmapDrawable(getResources(), image_ronde);
         imgView.setImageDrawable(drawable);
         //construct next episode
-        Episode nextEpisode;
+        // we construct next episode on each time the activity is called
+        Episode nextEpisode; //TODO: Set an timer to define an refresh rate
+
         try {
             nextEpisode =Id.getNextEpisodes();
-            // now we edit the default texts
+            // now we edit the default textss
             final TextView textscore = (TextView) findViewById(R.id.score);
             final TextView textshows = (TextView) findViewById(R.id.numbershows);
             final TextView textepisodes = (TextView) findViewById(R.id.numberepisodes);
@@ -58,7 +57,7 @@ public class DisplayImage extends AppCompatActivity {
             final TextView textprogress = (TextView) findViewById(R.id.progressvalue);
             final TextView textnextshowname = (TextView) findViewById(R.id.idshow);
             final TextView textnextshowinformations = (TextView) findViewById(R.id.informations);
-
+            /*
             textscore.setText(Integer.toString(profil.user.xp));
             textshows.setText(Integer.toString(profil.user.number_shows));
             textepisodes.setText(Integer.toString(profil.user.episodes_to_watch));
@@ -66,6 +65,15 @@ public class DisplayImage extends AppCompatActivity {
             textprogress.setText(String.valueOf(profil.user.progress));
             textnextshowname.setText(nextEpisode.show_name);
             textnextshowinformations.setText(nextEpisode.code +" "+nextEpisode.title );
+            */
+            textscore.setText(Integer.toString(CreateConnection.profil.user.xp));
+            textshows.setText(Integer.toString(CreateConnection.profil.user.number_shows));
+            textepisodes.setText(Integer.toString(CreateConnection.profil.user.episodes_to_watch));
+            textusername.setText(CreateConnection.profil.user.username);
+            textprogress.setText(String.valueOf(CreateConnection.profil.user.progress));
+            textnextshowname.setText(nextEpisode.show_name);
+            textnextshowinformations.setText(nextEpisode.code +" "+nextEpisode.title );
+
         } catch (IOException e) {
             e.printStackTrace();
             Log.v(TAG,"Error when gettint next episode");

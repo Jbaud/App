@@ -10,10 +10,6 @@ import java.io.IOException;
  */
 public class Shows {
 
-    CreateConnection imageGetter;
-    String TAG="Shows";
-
-
     Bitmap imgShow;
     int id;
     String title;

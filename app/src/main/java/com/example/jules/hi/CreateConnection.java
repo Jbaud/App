@@ -3,7 +3,6 @@ package com.example.jules.hi;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
-import android.widget.ImageView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -11,7 +10,6 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 
 import java.io.BufferedReader;
-import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -19,12 +17,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
-import javax.net.ssl.HttpsURLConnection;
 
 /**
  * Created by Jules on 12/10/2015.
@@ -39,16 +32,14 @@ public class CreateConnection {
     public static Profil profil = null;
     // looger Tag
     String TAG = "CreateConnection";
-    //String user = "baudjules";
     // Key permits to id an dev to the betaserie api
     String key = "e60e4c409cca";
-    //String mdp_hash = "2d55ca76930bc2102477014e8f503c96";
-    //the id user of myaccount
+    //the id user of my account
     int id =386608;
+    // for json request
     String USER_AGENT = "Mozilla/5.0";
-    SimpleDateFormat formater = null;
-
-    // This methode reach the add specified and download the JSON (not async)
+    // This methode reach the add specified and download the JSON (not async yet)
+    // TODO: Urgent, Rendre la méthode async
     private StringBuffer GetJson(int id_user,String path) throws IOException{
 
             String url = path+"?id="+Integer.toString(id_user)+"&v=2.4&key="+key;
@@ -80,32 +71,30 @@ public class CreateConnection {
 
 
     // Récupère les prochains épisodes pour un utilisateur
-    // Il faudrait renvoyer un objet de type Episode
     public Episode getNextEpisodes()throws IOException {
         StringBuffer response;
         response = GetJson(id, "https://api.betaseries.com/planning/member");
 
-        JSONObject json = null;
+        JSONObject json;
 
-        Episode nextEpisode = null;
+        Episode nextEpisode;
         try {
             json = (JSONObject) new JSONTokener(String.valueOf(response)).nextValue();
             JSONArray ArrayShow = json.getJSONArray("episodes");
             // SELECT FIRST ELT FROM ARRAY
             JSONObject episode = ArrayShow.getJSONObject(0);
-            int id = (int) episode.getInt("id");
-          //  Log.v(TAG,"------------>id next episode="+Integer.toString(id));
-            String title = (String) episode.getString("title");
-            String description = (String) episode.getString("description");
-            String date = (String) episode.getString("date");
-            String code = (String) episode.getString("code");
+            int id = episode.getInt("id");
+            String title =  episode.getString("title");
+            String description = episode.getString("description");
+            String date = episode.getString("date");
+            String code = episode.getString("code");
 
             JSONObject show = episode.getJSONObject("show");
-            int id_show = (int) show.getInt("id");
-            String showname = (String) show.getString("title");
+            int id_show = show.getInt("id");
+            String showname = show.getString("title");
             JSONObject user = episode.getJSONObject("user");
-            boolean seen = (boolean) user.getBoolean("seen");
-            boolean downloaded = (boolean) user.getBoolean("downloaded");
+            boolean seen = user.getBoolean("seen");
+            boolean downloaded = user.getBoolean("downloaded");
 
             nextEpisode = new Episode(id, title, code, id_show, showname, description, date, seen, downloaded);
             return nextEpisode;
@@ -118,8 +107,9 @@ public class CreateConnection {
         //there was a problem
 
     }
-    //Récupère l'image d'un show
-    public Bitmap getShowArt(int id_show) throws IOException {
+    //Récupère l'image d'un show avec l'identifiant du show
+
+    private Bitmap getShowArt(int id_show) throws IOException {
 
         // not the usual method since the url is different for this
         InputStream in = null;
@@ -141,12 +131,10 @@ public class CreateConnection {
             e.printStackTrace();
             Log.v(TAG,"error when downloading show art(type2");
         }
-        Bitmap bmpimg = BitmapFactory.decodeStream(in);
-
-        return bmpimg;
+        return BitmapFactory.decodeStream(in);
     }
     //Recupère l'image d'un utilisateur
-    public Bitmap GetUserPicture(int user_id) throws IOException {
+    private Bitmap GetUserPicture(int user_id) throws IOException {
 
         Bitmap image = null;
         try {
@@ -159,6 +147,17 @@ public class CreateConnection {
         return image;
     }
 
+    // C'est la méthode la plus importante elle cree un objet profil qui sera utilisé tout au long
+    // de l'applicaton.
+    /*
+    Profil:
+            ArrayList<Shows>    -> Liste contenant des informations sur les shows
+            User        -> Info sur le compte (nb series,photo etc...)
+    Pour mettre a jour ces information il est nécessaire de rappeler cette méthode
+
+    Performance: c'est la méthode la plus critique, de plus on appelle la fonction getArt d'ici
+
+     */
     public Profil getUserInformations() {
 
         ArrayList<Shows> myShows = new ArrayList<Shows>();
@@ -173,44 +172,38 @@ public class CreateConnection {
                 json = (JSONObject) new JSONTokener(String.valueOf(response)).nextValue();
                 JSONObject member = json.getJSONObject("member");
                 int xp = (int) member.get("xp");
-                System.out.println("------>XP value of member: " + xp);
                 JSONObject stats = member.getJSONObject("stats");
                 int shows = (int) stats.get("shows");
-                System.out.println("------>Number of shows: " + shows);
                 int seasons = (int) stats.get("seasons");
-                System.out.println("------>Number of seasons: " + seasons);
                 int episodes = (int) stats.get("episodes");
-                System.out.println("------>Number of seen episodes: " + episodes);
                 double progress = (double) stats.get("progress");
-                System.out.println("------>Overall progress: " + progress + "%");
                 // Now we enter inside the shows description
                 JSONArray ArrayShow = member.getJSONArray("shows");
 
-
+                //TODO separate the creation of user and the shows info
                 User newUser = new User("baudjules",shows, episodes, xp, progress,GetUserPicture(id));
 
-
-                System.out.println("ArrayShow size : " + ArrayShow.length());
                 Shows newShow = null;
                 for (int i = 0; i < ArrayShow.length(); i++) {
                     // we enter sublevel of shows
                     JSONObject show = ArrayShow.getJSONObject(i);
-                    int id_show = (int) show.get("id");
-                    String title_show = (String) show.getString("title");
-                    String description_show = (String) show.getString("description");
-                    int seasons_show = (int) show.getInt("seasons");
-                    int episodes_show = (int) show.getInt("episodes");
+                    int id_show =show.getInt("id");
+                    String title_show =  show.getString("title");
+                    String description_show = show.getString("description");
+                    int seasons_show = show.getInt("seasons");
+                    int episodes_show =  show.getInt("episodes");
                     // susb-sub level of show
                     JSONObject user = show.getJSONObject("user");
-                    int remaining_show = (int) user.getInt("remaining");
+                    int remaining_show = user.getInt("remaining");
                     // We create the object show
-                    newShow = new Shows(id_show, title_show.toString(), description_show.toString(), seasons_show, episodes_show, remaining_show,getShowArt(id_show));
+                    newShow = new Shows(id_show, title_show, description_show, seasons_show, episodes_show, remaining_show,getShowArt(id_show));
                     Log.v(TAG,"New show added!");
                     myShows.add(newShow);
                 }
                 // Creation of the profil instance
                 ListeShow completeShows = new ListeShow(myShows);
                 profil = new Profil(newUser, completeShows);
+                Log.i(TAG,"The profil has been created and can now be used in from the CreateConnection class");
 
             } catch (JSONException e) {
                 e.printStackTrace();

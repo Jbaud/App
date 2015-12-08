@@ -69,14 +69,8 @@ public class MainActivity extends AppCompatActivity {
                             Log.v(TAG, "User succesfully signed in!");
                             Toast toast = Toast.makeText(getApplicationContext(), "Signed in", Toast.LENGTH_LONG);
                             toast.show();
-                            Profil profil;
-                            CreateConnection Id = new CreateConnection();
-                            profil = Id.getUserInformations();
                             //Intent intent = new Intent(getApplicationContext(), DisplayImage.class);
                             Intent intent = new Intent(getApplicationContext(), MyShows.class);
-                            //Bundle bundle = new Bundle();
-                            //bundle.putSerializable("Profil", profil);
-                            //intent.putExtras(bundle);
                             Log.v(TAG, "Starting the intent!");
                             startActivity(intent);
                         }
@@ -126,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
         client.connect();
         Action viewAction = Action.newAction(
                 Action.TYPE_VIEW, // TODO: choose an action type.
-                "Main Page", // TODO: Define a title for the content shown.
+                "Login", // TODO: Define a title for the content shown.
                 // TODO: If you have web page content that matches this app activity's content,
                 // make sure this auto-generated web page URL is correct.
                 // Otherwise, set the URL to null.

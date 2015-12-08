@@ -12,7 +12,7 @@ public class User {
         int xp;
         double progress;
         Bitmap picture;
-        // One can add other elements as the xp or the profile picture
+
         public User(String username,int  number_shows, int episodes_to_watch,int xp,double progress,Bitmap picture)
        {
                 this.username=username;
@@ -22,4 +22,32 @@ public class User {
                 this.progress = progress;
                 this.picture = picture;
         }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public int getNumber_shows() {
+        return number_shows;
+    }
+
+    public int getEpisodes_to_watch() {
+        return episodes_to_watch;
+    }
+
+    public int getXp() {
+        return xp;
+    }
+
+    public double getProgress() {
+        return progress;
+    }
+
+    public Bitmap getPicture() {
+        return picture;
+    }
+    // probably the most stupid thing ever.
+    public User GetUser(){
+        return  this;
+    }
 }
