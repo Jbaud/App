@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/Jules/AndroidStudioProjects/Hi/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/8.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="4477ea44f5ec5ad064022a22691732d7638ff197">
+        <dex dex="/Users/Jules/AndroidStudioProjects/Hi/app/build/intermediates/pre-dexed/debug/classes-ff5f2f9e7aa7b91969f6669317545d65ab319642.jar" />
+    </item>
+    <item
+        jar="/Users/Jules/AndroidStudioProjects/Hi/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d0dda274b703dd9c5bb056867649d22b4171ae7d">
+        <dex dex="/Users/Jules/AndroidStudioProjects/Hi/app/build/intermediates/pre-dexed/debug/classes-416a856eaa9bf6a9b1516a11dadc2db8d2e656ae.jar" />
+    </item>
+    <item
+        jar="/Users/Jules/AndroidStudioProjects/Hi/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="4356e230a981d1bbf047d848b91bc0d9b7c5bacc">
+        <dex dex="/Users/Jules/AndroidStudioProjects/Hi/app/build/intermediates/pre-dexed/debug/classes-58e9d67598d04c6fd9cfb96b7c65e2ff60739d5c.jar" />
+    </item>
+    <item
+        jar="/Users/Jules/AndroidStudioProjects/Hi/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="5e412e954a24c5310a459c09870e4e2081aceb03">
+        <dex dex="/Users/Jules/AndroidStudioProjects/Hi/app/build/intermediates/pre-dexed/debug/classes-c2f53a62e6f627e16b3a47c2bbf8ec39e64e0f1d.jar" />
+    </item>
+
+</items>
