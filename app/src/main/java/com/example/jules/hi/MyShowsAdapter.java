@@ -39,7 +39,7 @@ public class MyShowsAdapter extends ArrayAdapter<String> {
         TextView pseudo = (TextView) rowView.findViewById(R.id.title);
         ImageView imageView = (ImageView) rowView.findViewById(R.id.photo);
         pseudo.setText(CreateConnection.profil.shows.getShow().get(position).title);
-        content.setText(CreateConnection.profil.shows.getShow().get(position).description);
+        content.setText("Your progression for this show: "+CreateConnection.profil.shows.getShow().get(position).remaining +"/" +CreateConnection.profil.shows.getShow().get(position).episodes);
         imageView.setImageBitmap(getCroppedBitmap(CreateConnection.profil.shows.getShow().get(position).imgShow, 80));
         Log.v("MyShowAdapter", "sublist has been created");
         return rowView;

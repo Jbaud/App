@@ -3,6 +3,9 @@ package com.example.jules.hi;
 import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.widget.ListView;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -21,6 +24,7 @@ public class MyShows extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        /* Fonctionne
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_my_shows);
         ListView list;
@@ -28,45 +32,16 @@ public class MyShows extends Activity {
         list = (ListView) findViewById(R.id.list);
         list.setAdapter(adapter);
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
-    }
+         */
+        // Adaptation Recycleview
 
-    @Override
-    public void onStart() {
-        super.onStart();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client.connect();
-        Action viewAction = Action.newAction(
-                Action.TYPE_VIEW, // TODO: choose an action type.
-                "MyShows", // TODO: Define a title for the content shown.
-                // TODO: If you have web page content that matches this app activity's content,
-                // make sure this auto-generated web page URL is correct.
-                // Otherwise, set the URL to null.
-                Uri.parse("http://host/path"),
-                // TODO: Make sure this auto-generated app deep link URI is correct.
-                Uri.parse("android-app://com.example.jules.hi/http/host/path")
-        );
-        AppIndex.AppIndexApi.start(client, viewAction);
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        Action viewAction = Action.newAction(
-                Action.TYPE_VIEW, // TODO: choose an action type.
-                "MyShows Page", // TODO: Define a title for the content shown.
-                // TODO: If you have web page content that matches this app activity's content,
-                // make sure this auto-generated web page URL is correct.
-                // Otherwise, set the URL to null.
-                Uri.parse("http://host/path"),
-                // TODO: Make sure this auto-generated app deep link URI is correct.
-                Uri.parse("android-app://com.example.jules.hi/http/host/path")
-        );
-        AppIndex.AppIndexApi.end(client, viewAction);
-        client.disconnect();
+        //tentative avec Recycle View
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.list2);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        ShowsAdapterRV mAdapter = new ShowsAdapterRV(CreateConnection.profil);
+        recyclerView.setAdapter(mAdapter);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
     }
 }

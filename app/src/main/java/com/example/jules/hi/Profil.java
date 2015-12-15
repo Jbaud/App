@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class Profil implements Serializable {
 
     public ListeShow   shows;
-    public User    user;
+    public User user;
 
     public Profil(User newUser, ListeShow newShow) {
         this.shows = newShow;

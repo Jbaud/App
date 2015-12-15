@@ -1,6 +1,9 @@
 package com.example.jules.hi;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -8,6 +11,7 @@ import android.os.UserManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.NotificationCompat;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -69,9 +73,12 @@ public class MainActivity extends AppCompatActivity {
                             Log.v(TAG, "User succesfully signed in!");
                             Toast toast = Toast.makeText(getApplicationContext(), "Signed in", Toast.LENGTH_LONG);
                             toast.show();
+                            CreateConnection initialize = new CreateConnection();
+                            initialize.getUserInformations();
                             //Intent intent = new Intent(getApplicationContext(), DisplayImage.class);
                             Intent intent = new Intent(getApplicationContext(), MyShows.class);
                             Log.v(TAG, "Starting the intent!");
+                            sendNotification(view);
                             startActivity(intent);
                         }
                         else{
@@ -150,4 +157,14 @@ public class MainActivity extends AppCompatActivity {
         AppIndex.AppIndexApi.end(client, viewAction);
         client.disconnect();
     }
+    // Create an notification view with logo + title + text
+    public void sendNotification(View view) {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+        builder.setSmallIcon(R.drawable.image);
+        builder.setContentTitle("Database updated");
+        builder.setContentText("your profile and show informations have been updated.");
+        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        notificationManager.notify(1, builder.build());
+    }
+
 }
