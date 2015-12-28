@@ -7,19 +7,17 @@ import android.graphics.Bitmap;
  */
 public class User {
         String username;
-        int number_shows;
-        int episodes_to_watch;
-        int xp;
-        double progress;
+        int shows_nb;
+        int episodes_vus;
+        int heures;
         Bitmap picture;
 
-        public User(String username,int  number_shows, int episodes_to_watch,int xp,double progress,Bitmap picture)
+        public User(String username,int  number_shows, int episodes_to_watch, int heures, Bitmap picture)
        {
                 this.username=username;
-                this.number_shows=number_shows;
-                this.episodes_to_watch = episodes_to_watch;
-                this.xp=xp;
-                this.progress = progress;
+                this.shows_nb=number_shows;
+                this.episodes_vus = episodes_to_watch;
+                this.heures = heures;
                 this.picture = picture;
         }
 
@@ -28,26 +26,18 @@ public class User {
     }
 
     public int getNumber_shows() {
-        return number_shows;
+        return shows_nb;
     }
 
-    public int getEpisodes_to_watch() {
-        return episodes_to_watch;
+    public int getEpisodes_vus() {
+        return episodes_vus;
     }
 
-    public int getXp() {
-        return xp;
-    }
-
-    public double getProgress() {
-        return progress;
+    public double getHeures() {
+        return heures;
     }
 
     public Bitmap getPicture() {
         return picture;
-    }
-    // probably the most stupid thing ever.
-    public User GetUser(){
-        return  this;
     }
 }

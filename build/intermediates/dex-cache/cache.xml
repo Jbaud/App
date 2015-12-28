@@ -2,32 +2,74 @@
 <items version="2" >
 
     <item
-        jar="/Users/Jules/AndroidStudioProjects/Hi/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.0.1/jars/classes.jar"
+        jar="/home/laure/aaa/4A/mobile/App/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="39ae02ce40c3ac828abbf780ce0ff5d7a28b7d6a">
-        <dex dex="/Users/Jules/AndroidStudioProjects/Hi/app/build/intermediates/pre-dexed/debug/classes-e80b80a6cd98d357853e54fe260dff22c2ba63e0.jar" />
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="/home/laure/aaa/4A/mobile/App/app/build/intermediates/pre-dexed/debug/classes-d0b99beadc57e27a7b08c5d54187b4f4f45f2bb9.jar" />
     </item>
     <item
-        jar="/Users/Jules/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
+        jar="/home/laure/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
-        <dex dex="/Users/Jules/AndroidStudioProjects/Hi/app/build/intermediates/pre-dexed/debug/library-2.4.0-0b08bceee4217327ae78e6f01adf421502184272.jar" />
+        <dex dex="/home/laure/aaa/4A/mobile/App/app/build/intermediates/pre-dexed/debug/library-2.4.0-cb26029aa9c19c83fb2d54c00259abb4646fde0b.jar" />
     </item>
     <item
-        jar="/Users/Jules/AndroidStudioProjects/Hi/app/build/intermediates/exploded-aar/com.github.florent37/materialtextfield/1.0.1/jars/classes.jar"
+        jar="/home/laure/aaa/4A/mobile/App/app/build/intermediates/exploded-aar/com.android.support/design/23.0.1/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="2123437cc582d1461d90a334c29c0a98d4522d0c">
-        <dex dex="/Users/Jules/AndroidStudioProjects/Hi/app/build/intermediates/pre-dexed/debug/classes-4fc6b3c67c48cb520d324016261f0ece00f837a2.jar" />
+        sha1="e5c61a3169221a89654ffcaaed47bba51cf071ad">
+        <dex dex="/home/laure/aaa/4A/mobile/App/app/build/intermediates/pre-dexed/debug/classes-d234fe4fb36afddbd16321d1d4d08797026386d7.jar" />
     </item>
     <item
-        jar="/Users/Jules/AndroidStudioProjects/Hi/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.0.1/jars/classes.jar"
+        jar="/home/laure/aaa/libs/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="/home/laure/aaa/4A/mobile/App/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.1-73a126d9e18d2bf0dfe5d1416fa97ed650db02c6.jar" />
+    </item>
+    <item
+        jar="/home/laure/aaa/4A/mobile/App/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d0dda274b703dd9c5bb056867649d22b4171ae7d">
+        <dex dex="/home/laure/aaa/4A/mobile/App/app/build/intermediates/pre-dexed/debug/classes-cf24104d6deff08e169c0722fb32d2ac6711ea2e.jar" />
+    </item>
+    <item
+        jar="/home/laure/aaa/4A/mobile/App/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
+        <dex dex="/home/laure/aaa/4A/mobile/App/app/build/intermediates/pre-dexed/debug/classes-0b57724cbaf17b6bbb3314828754b6d519c8a0e0.jar" />
+    </item>
+    <item
+        jar="/home/laure/aaa/4A/mobile/App/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/8.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="4477ea44f5ec5ad064022a22691732d7638ff197">
+        <dex dex="/home/laure/aaa/4A/mobile/App/app/build/intermediates/pre-dexed/debug/classes-2a992903daa204d3871d4104cbdb6ea43abff2a8.jar" />
+    </item>
+    <item
+        jar="/home/laure/aaa/4A/mobile/App/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="/home/laure/aaa/4A/mobile/App/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.1-74cbb42a20c4f65947b4353a699cbaec76438d30.jar" />
+    </item>
+    <item
+        jar="/home/laure/aaa/4A/mobile/App/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="39ae02ce40c3ac828abbf780ce0ff5d7a28b7d6a">
+        <dex dex="/home/laure/aaa/4A/mobile/App/app/build/intermediates/pre-dexed/debug/classes-b62527c644dd726c7179c137d514458e5423a4c1.jar" />
+    </item>
+    <item
+        jar="/home/laure/aaa/4A/mobile/App/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.0.1/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="4356e230a981d1bbf047d848b91bc0d9b7c5bacc">
-        <dex dex="/Users/Jules/AndroidStudioProjects/Hi/app/build/intermediates/pre-dexed/debug/classes-58e9d67598d04c6fd9cfb96b7c65e2ff60739d5c.jar" />
+        <dex dex="/home/laure/aaa/4A/mobile/App/app/build/intermediates/pre-dexed/debug/classes-0642653330892bb38244db01591d9addc2b3b2fe.jar" />
     </item>
 
 </items>

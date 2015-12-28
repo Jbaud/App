@@ -19,7 +19,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
 
-                android:src="@drawable/beta"
+                android:src="@drawable/beta_icone"
                 android:maxHeight="10px"
                 android:maxWidth="10px" />
 

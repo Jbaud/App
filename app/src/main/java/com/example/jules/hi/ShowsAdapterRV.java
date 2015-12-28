@@ -4,6 +4,9 @@ package com.example.jules.hi;
  * Created by Jules on 12/12/2015.
  */
 
+//à utiliser avec myshows et list2
+//design : shows.xml
+
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,8 +44,9 @@ public class ShowsAdapterRV extends RecyclerView.Adapter<ShowsAdapterRV.ViewHold
         // - get data from your itemsData at this position
         // - replace the contents of the view with that itemsData
 
-        viewHolder.txtViewTitle.setText("Your progression for this show: "+profil.shows.getShow().get(position).remaining +"/" +profil.shows.getShow().get(position).episodes);
-        viewHolder.imgViewIcon.setImageBitmap(getCroppedBitmap(profil.shows.getShow().get(position).imgShow, 80));
+        viewHolder.txtViewTitle.setText("Your progression for this show: "+profil.shows.get(position).remaining
+                + "/" +profil.shows.get(position).episodes);
+        viewHolder.imgViewIcon.setImageBitmap(getCroppedBitmap(profil.shows.get(position).imgShow, 80));
 
 
     }
@@ -61,10 +65,9 @@ public class ShowsAdapterRV extends RecyclerView.Adapter<ShowsAdapterRV.ViewHold
         }
     }
 
-
     // Return the size of your itemsData (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        return CreateConnection.profil.getShows().size();
+        return CreateConnection.profil.shows.size();
     }
 }

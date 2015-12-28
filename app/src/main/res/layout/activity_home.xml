@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- couleurs
+    bleu foncé : 2E4B60 -->
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2E4B60" >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <!-- user.picture -->
+        <ImageView
+            android:id="@+id/user.picture"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:gravity="center"
+            android:paddingTop="30dp"
+            android:background="#FFFFFF"
+            android:contentDescription="user_picture"
+            android:src="@drawable/user_image" />
+
+        <!-- user.name -->
+        <TextView
+            android:id="@+id/user.name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="30dp"
+            android:background="#FFFFFF"
+            android:textSize="30sp"
+            android:text="User" />
+
+        <!-- stats.X.number -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#056AB1" >
+
+            <TextView
+                android:id="@+id/stats.series.number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:paddingTop="20dp"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp"
+                android:text="0" />
+            <TextView
+                android:id="@+id/stats.episodes.number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:paddingTop="20dp"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp"
+                android:text="0" />
+            <TextView
+                android:id="@+id/stats.heures.number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:paddingTop="20dp"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp"
+                android:text="0"/>
+        </LinearLayout>
+
+        <!-- stats.X.title -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#056AB1" >
+
+            <TextView
+                android:id="@+id/stats.shows.title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:paddingBottom="20dp"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:text="séries" />
+            <TextView
+                android:id="@+id/stats.episodes.title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:paddingBottom="20dp"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:text="épisodes vus" />
+            <TextView
+                android:id="@+id/stats.heures.title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:paddingBottom="20dp"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:text="heures"/>
+        </LinearLayout>
+
+        <!-- next.header -->
+        <TextView
+            android:id="@+id/next.header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:padding="10dp"
+            android:gravity="center"
+            android:background="#056AB1"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:text="Prochain épisode" />
+
+        <!-- next.show -->
+        <TextView
+            android:id="@+id/next.show"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:padding="10dp"
+            android:background="#FFFFFF"
+            android:textSize="20sp"
+            android:text="The Simpsons" />
+
+        <!-- next.episode -->
+        <TextView
+            android:id="@+id/next.episode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:paddingLeft="10dp"
+            android:background="#FFFFFF"
+            android:textSize="15sp"
+            android:text="SO7E09 - Strange milk" />
+
+        <!-- next.date -->
+        <TextView
+            android:id="@+id/next.date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:paddingLeft="10dp"
+            android:paddingBottom="10dp"
+            android:background="#FFFFFF"
+            android:textSize="12sp"
+            android:text="Date : 03/01/2016"
+            android:textStyle="italic" />
+
+        <!-- next.description -->
+        <TextView
+            android:id="@+id/next.description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="30dp"
+            android:paddingLeft="10dp"
+            android:paddingBottom="10dp"
+            android:background="#FFFFFF"
+            android:textSize="12sp"
+            android:text="There is a new teacher at Springfield Elementary, and a captivated Bart tries everything to win her over. Meanwhile, Homer decides to buy a new brand of \u201cmilk,\u201d which causes early puberty, both for Bart (augmenting his wooing powers) and Lisa (whose small bout with acne opens her up to the world of makeup and popularity)."
+            android:textStyle="italic" />
+
+    </LinearLayout>
+</ScrollView>
+

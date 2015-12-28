@@ -9,7 +9,7 @@
         android:layout_width="79dp"
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
-            android:src="@drawable/beta"
+            android:src="@drawable/beta_icone"
         android:layout_marginTop="40dp"
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.07" />

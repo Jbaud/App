@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import static com.example.jules.hi.RoundedImageView.getCroppedBitmap;
 
+//may be deprecated
+
 /**
  * Created by Jules on 07/12/2015.
  */
@@ -28,7 +30,7 @@ public class MyShowsAdapter extends ArrayAdapter<String> {
 
     @Override
     public int getCount() {
-        return CreateConnection.profil.getShows().size();
+        return CreateConnection.profil.shows.size();
     }
 
     @Override
@@ -38,9 +40,10 @@ public class MyShowsAdapter extends ArrayAdapter<String> {
         TextView content = (TextView) rowView.findViewById(R.id.text);
         TextView pseudo = (TextView) rowView.findViewById(R.id.title);
         ImageView imageView = (ImageView) rowView.findViewById(R.id.photo);
-        pseudo.setText(CreateConnection.profil.shows.getShow().get(position).title);
-        content.setText("Your progression for this show: "+CreateConnection.profil.shows.getShow().get(position).remaining +"/" +CreateConnection.profil.shows.getShow().get(position).episodes);
-        imageView.setImageBitmap(getCroppedBitmap(CreateConnection.profil.shows.getShow().get(position).imgShow, 80));
+        pseudo.setText(CreateConnection.profil.shows.get(position).title);
+        content.setText("Your progression for this show: "+CreateConnection.profil.shows.get(position).remaining
+                + "/" +CreateConnection.profil.shows.get(position).episodes);
+        imageView.setImageBitmap(getCroppedBitmap(CreateConnection.profil.shows.get(position).imgShow, 80));
         Log.v("MyShowAdapter", "sublist has been created");
         return rowView;
     }

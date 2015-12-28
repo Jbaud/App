@@ -5,27 +5,17 @@ package com.example.jules.hi;
  */
 public class Episode {
 
-        int id;
-        String title;
-        String code;
-        int id_show;
-        String show_name;
-        String description ;
-        String date;
-        boolean seen;
-        boolean downloaded;
+    String show_name;
+    String episode_nb;
+    String title;
+    String date;
+    String description ;
 
-
-    public Episode(int id, String title,String code,int id_show, String show_name, String description, String date, boolean seen, boolean downloaded) {
-        this.id = id;
-        this.title = title;
-        this.code= code;
-        this.id_show = id_show;
+    public Episode(String show_name, String episode_nb, String title, String date, String description) {
         this.show_name = show_name;
-        this.description = description;
+        this.episode_nb= episode_nb;
+        this.title = title;
         this.date = date;
-        this.seen = seen;
-        this.downloaded =downloaded;
-
+        this.description = description;
     }
 }

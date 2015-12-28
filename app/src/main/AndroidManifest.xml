@@ -29,7 +29,7 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".DisplayImage"
+            android:name=".HomePage"
             android:label="@string/title_activity_display_image"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
