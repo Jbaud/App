@@ -41,7 +41,7 @@ public class CreateConnection {
     Pour obtenir l'image de chaque série : getShowPicture */
 
     //getProfile : méthode la + importante, crée un objet profil utilisé pour tout
-    public void getProfile() {
+    public int getProfile() {
 
         StringBuffer response; //buffer pour le JSON reçu suite au get
         User user;
@@ -71,6 +71,7 @@ public class CreateConnection {
 
                 //creation de l'user
                 user = new User(login, shows_nb, episodes_nb, progress, getUserPicture(user_id));
+                Log.v(TAG, "User created!");
 
                 //member.shows
                 JSONArray json_array_show = member.getJSONArray("shows");
@@ -98,20 +99,25 @@ public class CreateConnection {
 
                 //---- NEXT_EPISODE -----
                 next_episode = getNextEpisode();
+                Log.v(TAG, "Next episode created!");
 
                 //---- PROFIL -----
                 //creation du profil = user + shows (images des shows non présentes) + next_episode
                 profil = new Profil(user, shows, next_episode);
-                Log.i(TAG,"The profil has been created and can now be used in from the CreateConnection class");
+                Log.v(TAG, "The profil has been created and can now be used in from the CreateConnection class");
+
+                return (0); //everything went smoothly
 
             } catch (JSONException e) {
                 e.printStackTrace();
                 Log.v(TAG, "Error when parsing JSON");
+                return (2);
             }
 
         } catch (IOException e) {
             e.printStackTrace();
             Log.v(TAG, "Error in the received JSON file");
+            return (1);
         }
     }
 

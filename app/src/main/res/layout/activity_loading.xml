@@ -14,14 +14,26 @@
         android:src="@drawable/beta_big" />
 
     <TextView
-        android:id="@+id/home.user.name"
+        android:id="@+id/loading.title"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:textSize="30sp"
         android:textColor="#FFFFFF"
         android:text="BetaSeries"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/loading.status"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="60dp"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:text=""
         android:textStyle="italic" />
+
 
 </LinearLayout>

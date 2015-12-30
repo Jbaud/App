@@ -5,14 +5,14 @@
     tools:context=".MainActivity">
 
     <item
-        android:id="@+id/next_episodes_menu"
-        android:title="Next episodes"
+        android:id="@+id/menu.shows"
+        android:title="Mes séries"
         app:showAsAction="never"
         />
 
     <item
-        android:id="@+id/watch_list_menu"
-        android:title="Watch list"
+        android:id="@+id/menu.about"
+        android:title="A propos"
         app:showAsAction="never"
         />
 

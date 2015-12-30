@@ -33,18 +33,24 @@ public class HomePage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.v(TAG, "Create de homepage");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        // On rogne l'image de l'user pour la rendre ronde
-        Bitmap image_carre = CreateConnection.profil.user.picture;
-        Bitmap user_image;
-        user_image = getCroppedBitmap(image_carre,50);
+        // Si on a bien créé le profil
+        if (CreateConnection.profil != null)
+            Log.v(TAG, "Profil existant");
 
-        //on enregistre cette image en tant qu'image de profil
-        ImageView imgView=(ImageView) findViewById(R.id.user_picture);
-        Drawable drawable = new BitmapDrawable(getResources(), user_image);
-        imgView.setImageDrawable(drawable);
+            // On rogne l'image de l'user pour la rendre ronde
+            Bitmap image_carre = CreateConnection.profil.user.picture;
+            Bitmap user_image;
+            user_image = getCroppedBitmap(image_carre,50);
+
+            //on enregistre cette image en tant qu'image de profil
+            ImageView imgView = (ImageView) findViewById(R.id.user_picture);
+            Drawable drawable = new BitmapDrawable(getResources(), user_image);
+            imgView.setImageDrawable(drawable);
+        Log.v(TAG, "Image ok");
 
         // on récupère les textview à éditer
         final TextView text_user_name = (TextView) findViewById(R.id.user_name);
@@ -55,6 +61,8 @@ public class HomePage extends AppCompatActivity {
         final TextView text_next_episode = (TextView) findViewById(R.id.next_episode);
         final TextView text_next_date = (TextView) findViewById(R.id.next_date);
         final TextView text_next_description = (TextView) findViewById(R.id.next_description);
+
+        Log.v(TAG, "Textviews récupérés");
 
         // on edite les textes par défaut
         text_user_name.setText(CreateConnection.profil.user.username);
@@ -127,14 +135,14 @@ public class HomePage extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             // action with ID action_refresh was selected
-            case R.id.next_episodes_menu:
-                Toast.makeText(this, "Liste des prochains episodes", Toast.LENGTH_SHORT)
+            case R.id.menu_shows:
+                Toast.makeText(this, "Liste de mes séries", Toast.LENGTH_SHORT)
                         .show();
                 break;
             // action with ID action_settings was selected
-            case R.id.watch_list_menu:
-                Toast.makeText(this, "Watch list", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(), MyShows.class);
+            case R.id.menu_about:
+                Toast.makeText(this, "A propos", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), About.class);
                 Log.v(TAG, "Starting the intent!");
                 startActivity(intent);
                 break;

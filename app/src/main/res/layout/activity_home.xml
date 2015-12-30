@@ -138,6 +138,7 @@
             android:layout_marginRight="30dp"
             android:padding="10dp"
             android:background="#FFFFFF"
+            android:textColor="#2d2d2d"
             android:textSize="20sp"
             android:text="The Simpsons" />
 
@@ -150,6 +151,7 @@
             android:layout_marginRight="30dp"
             android:paddingLeft="10dp"
             android:background="#FFFFFF"
+            android:textColor="#2d2d2d"
             android:textSize="15sp"
             android:text="SO7E09 - Strange milk" />
 
@@ -163,6 +165,7 @@
             android:paddingLeft="10dp"
             android:paddingBottom="10dp"
             android:background="#FFFFFF"
+            android:textColor="#2d2d2d"
             android:textSize="12sp"
             android:text="Date : 03/01/2016"
             android:textStyle="italic" />
@@ -178,6 +181,7 @@
             android:paddingLeft="10dp"
             android:paddingBottom="10dp"
             android:background="#FFFFFF"
+            android:textColor="#2d2d2d"
             android:textSize="12sp"
             android:text="There is a new teacher at Springfield Elementary, and a captivated Bart tries everything to win her over. Meanwhile, Homer decides to buy a new brand of \u201cmilk,\u201d which causes early puberty, both for Bart (augmenting his wooing powers) and Lisa (whose small bout with acne opens her up to the world of makeup and popularity)."
             android:textStyle="italic" />

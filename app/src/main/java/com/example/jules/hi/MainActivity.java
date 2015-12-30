@@ -12,19 +12,28 @@ import android.view.View;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
+
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    String TAG ="MainActivity";
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
     private GoogleApiClient client;
+    private String TAG ="MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        // if not the first time we open the app
+        if ((getIntent().getFlags() & Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT) != 0) {
+            finish();
+            return;
+        }
+
         //ThreadPolicy instance creation
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -37,10 +46,13 @@ public class MainActivity extends AppCompatActivity {
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
-        Log.v(TAG, "Connection in progres...");
+        Log.v(TAG, "Connection in progress...");
         Toast.makeText(this, "Connecting...", Toast.LENGTH_SHORT).show();
+
+        //new ProfilCreationTask((TextView) findViewById(R.id.loading_status)).execute();
         CreateConnection connection = new CreateConnection();
         connection.getProfile();
+
         Toast.makeText(this, "Connected!", Toast.LENGTH_SHORT).show();
 
         //HomePage activity
@@ -49,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         //disable the back button to this activity
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
+        finish();
     }
 
     @Override
@@ -87,8 +100,9 @@ public class MainActivity extends AppCompatActivity {
                 // TODO: Make sure this auto-generated app deep link URI is correct.
                 Uri.parse("android-app://com.example.jules.hi/http/host/path")
         );
-        AppIndex.AppIndexApi.end(client, viewAction);
-        client.disconnect();
+        //AppIndex.AppIndexApi.end(client, viewAction);
+        //client.disconnect();
+        new ProfilCreationTask((TextView) findViewById(R.id.loading_status)).execute();
     }
 
 
