@@ -15,5 +15,4 @@
         android:title="A propos"
         app:showAsAction="never"
         />
-
 </menu>

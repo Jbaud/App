@@ -44,8 +44,10 @@ public class ShowsAdapterRV extends RecyclerView.Adapter<ShowsAdapterRV.ViewHold
         // - get data from your itemsData at this position
         // - replace the contents of the view with that itemsData
 
-        viewHolder.txtViewTitle.setText("Your progression for this show: "+profil.shows.get(position).remaining
-                + "/" +profil.shows.get(position).episodes);
+        int episodesVus = profil.shows.get(position).episodes - profil.shows.get(position).remaining;
+
+        viewHolder.txtViewTitle.setText(profil.shows.get(position).title);
+        viewHolder.txtViewContent.setText("Episodes vus : "+episodesVus+"/"+profil.shows.get(position).episodes);
         viewHolder.imgViewIcon.setImageBitmap(getCroppedBitmap(profil.shows.get(position).imgShow, 80));
 
 
@@ -55,12 +57,13 @@ public class ShowsAdapterRV extends RecyclerView.Adapter<ShowsAdapterRV.ViewHold
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView txtViewTitle;
+        public TextView txtViewContent;
         public ImageView imgViewIcon;
 
         public ViewHolder(View itemLayoutView) {
             super(itemLayoutView);
             txtViewTitle = (TextView) itemLayoutView.findViewById(R.id.title);
-            txtViewTitle = (TextView) itemLayoutView.findViewById(R.id.content);
+            txtViewContent = (TextView) itemLayoutView.findViewById(R.id.content);
             imgViewIcon = (ImageView) itemLayoutView.findViewById(R.id.showpicture);
         }
     }

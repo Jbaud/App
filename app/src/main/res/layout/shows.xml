@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:padding="16dp"
+    android:background="@color/bleu_clair"
     >
 
     <android.support.v7.widget.CardView
@@ -26,18 +27,22 @@
                 />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/title"
+                android:textColor="#2d2d2d"
+                android:text="Titre"
                 android:layout_toRightOf="@+id/showpicture"
                 android:layout_alignParentTop="true"
-                android:textSize="30sp"
+                android:textSize="20sp"
                 />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/content"
+                android:textColor="#2d2d2d"
+                android:text="Contenu"
                 android:layout_toRightOf="@+id/showpicture"
                 android:layout_below="@+id/title"
                 />

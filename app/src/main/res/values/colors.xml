@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="bleu">#00A8A8</color>
-    <color name="bleu_clair1">#D7EDF5</color>
-    <color name="bleu_clair2">#8EE4E4</color>
-    <color name="bleu_fonce1">#2A5b5B</color>
-    <color name="bleu_fonce2">#003C3C</color>
+    <color name="vert_clair">#00A8A8</color>
+    <color name="vert_fonce">#296046</color>
+    <color name="bleu_clair">#056AB1</color>
+    <color name="bleu_fonce">#2E4B60</color>
     <color name="blanc">#FFFFFF</color>
     <color name="noir">#000000</color>
 </resources>

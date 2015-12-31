@@ -9,15 +9,15 @@ public class User {
         String username;
         int shows_nb;
         int episodes_vus;
-        int heures;
+        int minutes;
         Bitmap picture;
 
-        public User(String username,int  number_shows, int episodes_to_watch, int heures, Bitmap picture)
+        public User(String username,int  number_shows, int episodes_to_watch, int minutes, Bitmap picture)
        {
                 this.username=username;
                 this.shows_nb=number_shows;
                 this.episodes_vus = episodes_to_watch;
-                this.heures = heures;
+                this.minutes = minutes;
                 this.picture = picture;
         }
 
@@ -33,8 +33,8 @@ public class User {
         return episodes_vus;
     }
 
-    public double getHeures() {
-        return heures;
+    public int getHeures() {
+        return minutes;
     }
 
     public Bitmap getPicture() {

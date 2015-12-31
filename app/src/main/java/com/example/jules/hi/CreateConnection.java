@@ -67,10 +67,10 @@ public class CreateConnection {
                 JSONObject stats = member.getJSONObject("stats");
                 int shows_nb = (int) stats.get("shows");
                 int episodes_nb = (int) stats.get("episodes");
-                int progress = (int)((double)stats.get("progress") * 100);
+                int minutes = (int) stats.get("time_on_tv");
 
                 //creation de l'user
-                user = new User(login, shows_nb, episodes_nb, progress, getUserPicture(user_id));
+                user = new User(login, shows_nb, episodes_nb, minutes, getUserPicture(user_id));
                 Log.v(TAG, "User created!");
 
                 //member.shows
@@ -122,17 +122,20 @@ public class CreateConnection {
     }
 
     //Ajoute l'image du show à chaque show
-    public void updateShowsPicture() {
+    public int updateShowsPicture() {
         int id;
         for (int i = 0; i < profil.shows.size(); i++) {
             id = profil.shows.get(i).getShowId();
             try {
                 profil.shows.get(i).setPictureShow(getShowPicture(id));
+                Log.v(TAG, "Ajout de l'image pour le show : " + id);
             } catch (IOException e) {
                 e.printStackTrace();
                 Log.v(TAG, "Error when adding picture to show with id : "+id);
+                return(1); //error
             }
         }
+        return(0); //everything went smoothly
     }
 
     // Requete GET vers l'api betaseries, récupération du JSON

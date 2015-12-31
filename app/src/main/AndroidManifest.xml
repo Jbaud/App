@@ -6,12 +6,12 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/beta_icone"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".PageLoading"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.Translucent">
             <intent-filter>
@@ -28,15 +28,15 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".HomePage"
+            android:name=".PageHome"
             android:label="@string/title_activity_display_image"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".About"
+            android:name=".PageAbout"
             android:label="@string/title_activity_about"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".MyShows"
+            android:name=".PageShows"
             android:label="@string/title_activity_my_shows"
             android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
     </application>

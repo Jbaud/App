@@ -33,6 +33,7 @@
             android:gravity="center"
             android:paddingBottom="30dp"
             android:background="#FFFFFF"
+            android:textColor="#2d2d2d"
             android:textSize="30sp"
             android:text="User" />
 
@@ -111,7 +112,7 @@
                 android:paddingBottom="20dp"
                 android:textColor="#FFFFFF"
                 android:textSize="15sp"
-                android:text="heures"/>
+                android:text="minutes"/>
         </LinearLayout>
 
         <!-- next.header -->

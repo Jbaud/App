@@ -7,7 +7,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2E4B60"
+    android:background="@color/bleu_fonce"
     android:orientation="vertical">
 
     <!-- about.title -->
@@ -50,5 +50,15 @@
         android:textColor="#2d2d2d"
         android:textSize="15sp"
         android:text="- Jules Baud\n- Laure Delisle" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:id="@+id/about.bouton"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="#FFFFFF"
+        android:text="Voter"
+        android:textColor="#2d2d2d"
+        android:layout_gravity="center_horizontal" />
 
 </LinearLayout>

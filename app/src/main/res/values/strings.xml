@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BetaViewer</string>
+    <string name="app_name">BetaSeries</string>
     <string name="action_settings">Settings</string>
     <string name="beta.png">beta</string>
     <string name="bouton_valider">Go!</string>
