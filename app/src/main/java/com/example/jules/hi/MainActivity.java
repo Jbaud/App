@@ -1,7 +1,10 @@
 package com.example.jules.hi;
 
 import android.app.NotificationManager;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -24,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
      */
     private GoogleApiClient client;
     private String TAG ="MainActivity";
+    private BroadcastReceiver broadcastReceiverOk;
+    private BroadcastReceiver broadcastReceiverKo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,22 +51,45 @@ public class MainActivity extends AppCompatActivity {
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
+        //Filtres pour le broadcast receiver
+        IntentFilter intentFilterOk = new IntentFilter("com.example.PROFILE_CREATED");
+        IntentFilter intentFilterKo = new IntentFilter("com.example.CONNECTION_ERROR");
+
+        //Action à effectuer quand le profil a bien été créé
+        broadcastReceiverOk = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intentOk) {
+                Toast.makeText(context, "Connected!", Toast.LENGTH_SHORT).show();
+                Log.v(TAG, "Connected! Starting the intent...");
+
+                //HomePage activity
+                Intent intent = new Intent(getApplicationContext(), HomePage.class);
+
+                //disable the back button to this activity
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
+            }
+        };
+
+        //Actions à effectuer si erreur de connection
+        broadcastReceiverKo = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intentKo) {
+                Toast.makeText(context, "Connection error", Toast.LENGTH_SHORT).show();
+            }
+        };
+
+        registerReceiver(broadcastReceiverOk, intentFilterOk);
+        registerReceiver(broadcastReceiverKo, intentFilterKo);
+
         Log.v(TAG, "Connection in progress...");
-        Toast.makeText(this, "Connecting...", Toast.LENGTH_SHORT).show();
 
-        //new ProfilCreationTask((TextView) findViewById(R.id.loading_status)).execute();
-        CreateConnection connection = new CreateConnection();
-        connection.getProfile();
+        //AsyncTask pour la creation de profil
+        new ProfilCreationTask((TextView) findViewById(R.id.loading_status),getApplicationContext()).execute();
+        //CreateConnection connection = new CreateConnection();
+        //connection.getProfile();
 
-        Toast.makeText(this, "Connected!", Toast.LENGTH_SHORT).show();
-
-        //HomePage activity
-        Intent intent = new Intent(getApplicationContext(), HomePage.class);
-        Log.v(TAG, "Connected! Starting the intent...");
-        //disable the back button to this activity
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-        finish();
     }
 
     @Override
@@ -102,7 +130,18 @@ public class MainActivity extends AppCompatActivity {
         );
         //AppIndex.AppIndexApi.end(client, viewAction);
         //client.disconnect();
-        new ProfilCreationTask((TextView) findViewById(R.id.loading_status)).execute();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
     }
 
 

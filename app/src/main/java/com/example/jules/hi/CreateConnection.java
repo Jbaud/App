@@ -116,7 +116,7 @@ public class CreateConnection {
 
         } catch (IOException e) {
             e.printStackTrace();
-            Log.v(TAG, "Error in the received JSON file");
+            Log.v(TAG, "Error in the received JSON file or connection error");
             return (1);
         }
     }
